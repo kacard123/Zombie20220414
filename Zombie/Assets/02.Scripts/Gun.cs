@@ -50,6 +50,9 @@ public class Gun : MonoBehaviour
 
     private void OnEnable()
     {
+        // 오브젝트가 비활성화 상태에서 활성화로 바뀌게 만듦
+        // 반대는 OnDisable
+        // 컴포넌트의 활성화, 비활성화 차이
         // 총 상태 초기화
         // 전체 예비 탄알 양을 초기화
         ammoRemain = gunData.startAmmoRemain;
@@ -63,12 +66,16 @@ public class Gun : MonoBehaviour
 
     }
 
-    // 발사 시도
-    public void Fire()
+    public void Fire() // 발사 시도
     {
         // 현재 상태가 발사 가능한 상태
-        // && 마지막 총 발사 시점에서 gunData.timeBetFire 이상의 시간이 지남
-        if(state == State.Ready && Time.time >= lastFireTime + gunData.timeBetFire)
+        // &&(이면서) 마지막 총 발사 시점에서 gunData.timeBetFire 이상의 시간이 지남
+        // Time.time : 현재 게임이 진행되고나서 얼마의 시간이 지났는지 나오는 것.
+        // Time.deltatime : 바로 전 프레임을 수행하는데 걸린 게임시간을 의미합니다.
+        // Time.fixedDeltatime : 물리효과(physics)와
+        // 다른 고정 프레임률 업데이트(fixed frame rate update)(MonoBehaviour의 FixedUpdate의 경우)가
+        // 수행되는 초 단위의 간격을 나타냅니다.
+        if (state == State.Ready && Time.time >= lastFireTime + gunData.timeBetFire)
         {
             // 마지막 총 발사 시점 갱신
             lastFireTime = Time.time;
