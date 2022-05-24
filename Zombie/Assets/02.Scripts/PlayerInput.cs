@@ -2,63 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍ¸¦ Á¶ÀÛÇÏ±â À§ÇÑ »ç¿ëÀÚ ÀÔ·ÂÀ» °¨Áö
-// °¨ÁöµÈ ÀÔ·Â°ªÀ» ´Ù¸¥ ÄÄÆ÷³ÍÆ®°¡ »ç¿ëÇÒ ¼ö ÀÖµµ·Ï Á¦°ø
+
+// í”Œë ˆì´ì–´ ìºë¦­í„°ë¥¼ ì¡°ì‘í•˜ê¸° ìœ„í•œ ì‚¬ìš©ì ì…ë ¥ì„ ê°ì§€
+// ê°ì§€ëœ ì…ë ¥ê°’ì„ ë‹¤ë¥¸ ì»´í¬ë„ŒíŠ¸ê°€ ì‚¬ìš©í•  ìˆ˜ ìˆë„ë¡ ì œê³µ
 public class PlayerInput : MonoBehaviour
 {
-    // ¾ÕµÚ ¿òÁ÷ÀÓÀ» À§ÇÑ ÀÔ·ÂÃà ÀÌ¸§
-    public string moveAxisName = "Vertical";
-    // ÁÂ¿ì È¸ÀüÀ» À§ÇÑ ÀÔ·ÂÃà ÀÌ¸§
-    public string rotateAxisName = "Horizontal";
-    // ¹ß»ç¸¦ À§ÇÑ ÀÔ·Â ¹öÆ° ÀÌ¸§
-    public string fireButtonName = "Fire1";
-    // ÀçÀåÀüÀ» À§ÇÑ ÀÔ·Â ¹öÆ° ÀÌ¸§
-    public string reloadButtonName = "Reload";
+    public string moveAxisName = "Vertical";        // ì•ë’¤ ì›€ì§ì„ì„ ìœ„í•œ ì…ë ¥ì¶•
+    public string rotateAxisName = "Horizontal";    // ì¢Œìš° íšŒì „ì„ ìœ„í•œ ì…ë ¥ì¶• ì´ë¦„
+    public string fireButtonName = "Fire1";         // ë°œì‚¬ë¥¼ ìœ„í•œ ì…ë ¥ ë²„íŠ¼ ì´ë¦„
+    public string reloadButtonName = "Reload";      // ì¬ì¥ì „ì„ ìœ„í•œ ì…ë ¥ ë²„íŠ¼ ì´ë¦„
+    
 
-    // °ª ÇÒ´çÀº ³»ºÎ¿¡¼­¸¸ °¡´É
-    /// <summary>
-    /// °¨ÁöµÈ ¿òÁ÷ÀÓ ÀÔ·Â°ª(ÇÁ·ÎÆÛÆ¼)
-    /// </summary>
-    public float move { get; private set; }
-    /// <summary>
-    /// °¨ÁöµÈ È¸Àü ÀÔ·Â°ª(ÇÁ·ÎÆÛÆ¼)
-    /// </summary>
-    public float rotate { get; private set; }
-    /// <summary>
-    /// °¨ÁöµÈ ¹ß»ç ÀÔ·Â°ª(ÇÁ·ÎÆÛÆ¼)
-    /// </summary>
-    public bool fire { get; private set; }
-    /// <summary>
-    /// °¨ÁöµÈ ÀçÀåÀü ÀÔ·Â°ª(ÇÁ·ÎÆÛÆ¼)
-    /// </summary>
-    public bool reload { get; private set; }
+    // í”„ë¡œí¼í‹° : ê°’ í• ë‹¹ì€ ë‚´ë¶€ì—ì„œë§Œ ê°€ëŠ¥
+    public float move { get; private set; }     // ê°ì§€ëœ ì›€ì§ì„ ì…ë ¥ê°’
+    public float rotate { get; private set; }   // ê°ì§€ëœ íšŒì „ ì…ë ¥ê°’
+    public bool fire { get; private set; }      // ê°ì§€ëœ ë°œì‚¬ ì…ë ¥ê°’
+    public bool reload { get; private set; }    // ê°ì§€ëœ ì¬ì¥ì „ ì…ë ¥ê°’
 
-    void Update() // ¸ÅÇÁ·¹ÀÓ »ç¿ëÀÚ ÀÔ·ÂÀ» °¨Áö
+
+    private void Update()       // ë§¤ í”„ë ˆì„ ì‚¬ìš©ì ì…ë ¥ì„ ê°ì§€
     {
-        // °ÔÀÓ¿À¹ö »óÅÂ¿¡¼­´Â »ç¿ëÀÚ ÀÔ·ÂÀ» °¨ÁöÇÏÁö ¾ÊÀ½
+        // ê²Œì„ì˜¤ë²„ ìƒíƒœì—ì„œëŠ” ì‚¬ìš©ì ì…ë ¥ì„ ê°ì§€í•˜ì§€ ì•ŠìŒ
         if (GameManager.instance != null && GameManager.instance.isGameover)
         {
-            move = 0; rotate = 0; fire = false; reload = false;
+            move = 0;
+            rotate = 0;
+            fire = false;
+            reload = false;
             return;
         }
 
-        // move¿¡ °üÇÑ ÀÔ·Â °¨Áö
+        // moveì— ê´€í•œ ì…ë ¥ ê°ì§€
         move = Input.GetAxis(moveAxisName);
-        // rotate¿¡ °üÇÑ ÀÔ·Â °¨Áö
+        // rotateì— ê´€í•œ ì…ë ¥ ê°ì§€
         rotate = Input.GetAxis(rotateAxisName);
-        // fire¿¡ °üÇÑ ÀÔ·Â °¨Áö
+        // fireì— ê´€í•œ ì…ë ¥ ê°ì§€
         fire = Input.GetButton(fireButtonName);
-        // reload¿¡ °üÇÑ ÀÔ·Â °¨Áö
+        // reloadì— ê´€í•œ ì…ë ¥ ê°ì§€
         reload = Input.GetButtonDown(reloadButtonName);
-    }
-
-    /// <summary>
-    /// ¿òÁ÷ÀÓÃ³¸® ¸Ş¼­µå
-    /// </summary>
-    /// <param name="¼Óµµ">¿òÁ÷ÀÓ ÀÌµ¿ ¼Ó·Â</param>
-    /// <param name="¹æÇâ¼º">¹æÇâ¼º</param>
-    public void Movement(int speed, float a)
-    {
 
     }
 }

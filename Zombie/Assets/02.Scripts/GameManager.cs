@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     public bool isGameover;
+
     void Start()
     {
         
@@ -17,4 +17,5 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
 }

@@ -1,7 +1,7 @@
-
 using UnityEngine;
 
 public interface IItem
 {
-    void Use(GameObject traget);
+    void Use(GameObject target);
+    
 }
