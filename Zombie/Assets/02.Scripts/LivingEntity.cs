@@ -24,7 +24,7 @@ public class LivingEntity :MonoBehaviour, IDamageable{
         // 대미지만큼 체력 감소
         health -= damage;
 
-        // 체력이 0 이하 && 아직 죽지 않았따면 사망 처리 실행
+        // 체력이 0 이하 && 아직 죽지 않았다면 사망 처리 실행
         if(health <= 0  && !dead) 
         {
             Die();    
