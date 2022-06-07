@@ -424,9 +424,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4126983702692336}
-  - component: {fileID: 1333064432}
-  - component: {fileID: 1333064433}
-  - component: {fileID: 1333064434}
+  - component: {fileID: 276805970}
+  - component: {fileID: 276805971}
+  - component: {fileID: 276805972}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -449,12 +449,12 @@ Transform:
   - {fileID: 4355249862128598}
   - {fileID: 4789895822770736}
   - {fileID: 4959168996130380}
-  - {fileID: 4000011183046123}
-  - {fileID: 4000011164049441}
+  - {fileID: 4000011363741974}
+  - {fileID: 4000011083467133}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1333064432
+--- !u!82 &276805970
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -550,7 +550,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!120 &1333064433
+--- !u!120 &276805971
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -590,7 +590,9 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions: []
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.02
@@ -646,7 +648,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &1333064434
+--- !u!114 &276805972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -655,13 +657,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1784282725167592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3d2d59f22c23b944ace0afd3d065009, type: 3}
+  m_Script: {fileID: 11500000, guid: e04203cadf03e2042ae9699d00f101a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireTransform: {fileID: 4959168996130380}
-  muzzleFlashEffect: {fileID: 198000012740914401}
-  shellEjectEffect: {fileID: 198000010122116829}
-  gunData: {fileID: 11400000, guid: 307cc0d1392d3c44e9172f1b8876ccbb, type: 2}
+  muzzleFlashEffect: {fileID: 198000012639213687}
+  shellEjectEffect: {fileID: 198000010312495082}
+  gunData: {fileID: 11400000, guid: 8fa4d614b8711d04fa2035b5fb1a7d0d, type: 2}
   ammoRemain: 100
   magAmmo: 0
 --- !u!1 &1871168162219632
@@ -729,7 +731,7 @@ Transform:
   m_Father: {fileID: 4126983702692336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &28548339
+--- !u!1001 &358256068
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -742,7 +744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011175361746, guid: 8e60b325a019543cbb2e3920522a2e6b, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4000011175361746, guid: 8e60b325a019543cbb2e3920522a2e6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -794,17 +796,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e60b325a019543cbb2e3920522a2e6b, type: 3}
---- !u!4 &4000011164049441 stripped
+--- !u!4 &4000011363741974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011175361746, guid: 8e60b325a019543cbb2e3920522a2e6b, type: 3}
-  m_PrefabInstance: {fileID: 28548339}
+  m_PrefabInstance: {fileID: 358256068}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &198000010122116829 stripped
+--- !u!198 &198000010312495082 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198000010131513902, guid: 8e60b325a019543cbb2e3920522a2e6b, type: 3}
-  m_PrefabInstance: {fileID: 28548339}
+  m_PrefabInstance: {fileID: 358256068}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &501566545
+--- !u!1001 &402045127
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -817,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011227296186, guid: 74d744994bc414c37bfda957f1d57118, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4000011227296186, guid: 74d744994bc414c37bfda957f1d57118, type: 3}
       propertyPath: m_LocalPosition.x
@@ -865,13 +867,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d744994bc414c37bfda957f1d57118, type: 3}
---- !u!4 &4000011183046123 stripped
+--- !u!4 &4000011083467133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011227296186, guid: 74d744994bc414c37bfda957f1d57118, type: 3}
-  m_PrefabInstance: {fileID: 501566545}
+  m_PrefabInstance: {fileID: 402045127}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &198000012740914401 stripped
+--- !u!198 &198000012639213687 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198000012944515248, guid: 74d744994bc414c37bfda957f1d57118, type: 3}
-  m_PrefabInstance: {fileID: 501566545}
+  m_PrefabInstance: {fileID: 402045127}
   m_PrefabAsset: {fileID: 0}

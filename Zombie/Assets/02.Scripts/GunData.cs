@@ -1,17 +1,17 @@
-
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable/GunData", fileName = "Gun Data")]
+[CreateAssetMenu(menuName = "Scriptable/GunData",
+    fileName = "Gun Data")]
 public class GunData : ScriptableObject
 {
-    public AudioClip shotClip;      // ë°œì‚¬ì†Œë¦¬
-    public AudioClip reloadClip;    // ì¬ì¥ì „ ì†Œë¦¬
+    public AudioClip shotClip; // ¹ß»ç ¼Ò¸®
+    public AudioClip reloadClip; // ÀçÀåÀü ¼Ò¸®
 
-    public float damage = 25f;      // ê³µê²©ë ¥
+    public float damage = 25; // °ø°İ·Â
 
-    public int startAmmoRemain = 100;       // ì²˜ìŒì— ì£¼ì–´ì§ˆ ì „ì²´ íƒ„ì•Œ
-    public int magCapacity = 25;            // íƒ„ì°½ ìš©ëŸ‰
+    public int startAmmoRemain = 100; // Ã³À½¿¡ ÁÖ¾îÁú ÀüÃ¼ Åº¾Ë
+    public int magCapacity = 25; // ÅºÃ¢ ¿ë·®
 
-    public float timeBetFire = 0.12f;       // íƒ„ì•Œ ë°œì‚¬ ê°„ê²©  (ì—°ì‚¬ì†ë„)
-    public float reloadTime = 1.8f;         // ì¬ì¥ì „ ì†Œìš” ì‹œê°„
+    public float timeBetFire = 0.12f; // Åº¾Ë ¹ß»ç °£°İ
+    public float reloadTime = 1.8f; // ÀçÀåÀü ¼Ò¿ä ½Ã°£
 }

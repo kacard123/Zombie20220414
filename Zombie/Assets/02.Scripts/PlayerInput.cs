@@ -1,29 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-// í”Œë ˆì´ì–´ ìºë¦­í„°ë¥¼ ì¡°ì‘í•˜ê¸° ìœ„í•œ ì‚¬ìš©ì ì…ë ¥ì„ ê°ì§€
-// ê°ì§€ëœ ì…ë ¥ê°’ì„ ë‹¤ë¥¸ ì»´í¬ë„ŒíŠ¸ê°€ ì‚¬ìš©í•  ìˆ˜ ìˆë„ë¡ ì œê³µ
+// ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍ¸¦ Á¶ÀÛÇÏ±â À§ÇÑ »ç¿ëÀÚ ÀÔ·ÂÀ» °¨Áö
+// °¨ÁöµÈ ÀÔ·Â°ªÀ» ´Ù¸¥ ÄÄÆ÷³ÍÆ®°¡ »ç¿ëÇÒ ¼ö ÀÖµµ·Ï Á¦°ø
 public class PlayerInput : MonoBehaviour
 {
-    public string moveAxisName = "Vertical";        // ì•ë’¤ ì›€ì§ì„ì„ ìœ„í•œ ì…ë ¥ì¶•
-    public string rotateAxisName = "Horizontal";    // ì¢Œìš° íšŒì „ì„ ìœ„í•œ ì…ë ¥ì¶• ì´ë¦„
-    public string fireButtonName = "Fire1";         // ë°œì‚¬ë¥¼ ìœ„í•œ ì…ë ¥ ë²„íŠ¼ ì´ë¦„
-    public string reloadButtonName = "Reload";      // ì¬ì¥ì „ì„ ìœ„í•œ ì…ë ¥ ë²„íŠ¼ ì´ë¦„
-    
+    // ¾ÕµÚ ¿òÁ÷ÀÓÀ» À§ÇÑ ÀÔ·ÂÃà ÀÌ¸§
+    public string moveAxisName = "Vertical";
+    // ÁÂ¿ì È¸ÀüÀ» À§ÇÑ ÀÔ·ÂÃà ÀÌ¸§
+    public string rotateAxisName = "Horizontal";
+    // ¹ß»ç¸¦ À§ÇÑ ÀÔ·Â ¹öÆ° ÀÌ¸§
+    public string fireButtonName = "Fire1";
+    // ÀçÀåÀüÀ» À§ÇÑ ÀÔ·Â ¹öÆ° ÀÌ¸§
+    public string reloadButtonName = "Reload";
 
-    // í”„ë¡œí¼í‹° : ê°’ í• ë‹¹ì€ ë‚´ë¶€ì—ì„œë§Œ ê°€ëŠ¥
-    public float move { get; private set; }     // ê°ì§€ëœ ì›€ì§ì„ ì…ë ¥ê°’
-    public float rotate { get; private set; }   // ê°ì§€ëœ íšŒì „ ì…ë ¥ê°’
-    public bool fire { get; private set; }      // ê°ì§€ëœ ë°œì‚¬ ì…ë ¥ê°’
-    public bool reload { get; private set; }    // ê°ì§€ëœ ì¬ì¥ì „ ì…ë ¥ê°’
+    // ÇÁ·ÎÆÛÆ¼ : °ª ÇÒ´çÀº ³»ºÎ¿¡¼­¸¸ °¡´É
+    public float move { get; private set; } // °¨ÁöµÈ ¿òÁ÷ÀÓ ÀÔ·Â°ª
+    public float rotate { get; private set; } // °¨ÁöµÈ È¸Àü ÀÔ·Â°ª
+    public bool fire { get; private set; } // °¨ÁöµÈ ¹ß»ç ÀÔ·Â°ª
+    public bool reload { get; private set; } // °¨ÁöµÈ ÀçÀåÀü ÀÔ·Â°ª
 
-
-    private void Update()       // ë§¤ í”„ë ˆì„ ì‚¬ìš©ì ì…ë ¥ì„ ê°ì§€
+    void Update() // ¸ÅÇÁ·¹ÀÓ »ç¿ëÀÚ ÀÔ·ÂÀ» °¨Áö
     {
-        // ê²Œì„ì˜¤ë²„ ìƒíƒœì—ì„œëŠ” ì‚¬ìš©ì ì…ë ¥ì„ ê°ì§€í•˜ì§€ ì•ŠìŒ
-        if (GameManager.instance != null && GameManager.instance.isGameover)
+        // °ÔÀÓ¿À¹ö »óÅÂ¿¡¼­´Â »ç¿ëÀÚ ÀÔ·ÂÀ» °¨ÁöÇÏÁö ¾ÊÀ½
+        if(GameManager.instance != null && GameManager.instance.isGameover)
         {
             move = 0;
             rotate = 0;
@@ -32,14 +31,13 @@ public class PlayerInput : MonoBehaviour
             return;
         }
 
-        // moveì— ê´€í•œ ì…ë ¥ ê°ì§€
+        // move¿¡ °üÇÑ ÀÔ·Â °¨Áö
         move = Input.GetAxis(moveAxisName);
-        // rotateì— ê´€í•œ ì…ë ¥ ê°ì§€
+        // rotate¿¡ °üÇÑ ÀÔ·Â °¨Áö
         rotate = Input.GetAxis(rotateAxisName);
-        // fireì— ê´€í•œ ì…ë ¥ ê°ì§€
+        // fire¿¡ °üÇÑ ÀÔ·Â °¨Áö
         fire = Input.GetButton(fireButtonName);
-        // reloadì— ê´€í•œ ì…ë ¥ ê°ì§€
+        // reload¿¡ °üÇÑ ÀÔ·Â °¨Áö
         reload = Input.GetButtonDown(reloadButtonName);
-
     }
 }
