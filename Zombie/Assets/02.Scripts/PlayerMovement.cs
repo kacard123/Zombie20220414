@@ -4,8 +4,6 @@ using UnityEngine;
 // 사용자 입력에 따라 플레이어 캐릭터를 움직이는 스크립트
 public class PlayerMovement : MonoBehaviourPun
 {
-    float time2 = 0;
-
     public float moveSpeed = 5f; // 앞뒤 움직임의 속도
     public float rotateSpeed = 180f; // 좌우 회전 속도
 
